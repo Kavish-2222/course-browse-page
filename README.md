@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Course Browse Page Replica
 
 ## Author & Submission
@@ -41,3 +42,6 @@ This project replicates the Course Browse Page web design based on the provided 
 4. The page is fully functional without any build steps or server.
 
 
+=======
+# course-browse-page
+>>>>>>> d2de57b503f0d9864ad290738b6c8187165e7cbf
