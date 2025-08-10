@@ -1,3 +1,6 @@
+
+
+
 #teachersGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -79,8 +82,8 @@ body{font-family: "Inter", Arial, sans-serif;color:#222;background:#fff;line-hei
 }
 .hero-left,.hero-center,.hero-right{flex:1}
 .hero-center{text-align:center;padding:12px 30px}
-.hero-center h1{font-size:56px;line-height:1.02;font-weight:800;margin-bottom:10px;text-shadow:2px 6px 22px rgba(0,0,0,0.35)}
-.hero-center p{font-size:22px;color:#fff7a8;margin-bottom:26px;text-shadow:1px 4px 18px rgba(0,0,0,0.25)}
+.hero-center h1{font-size:45px;line-height:1.02;font-weight:800;margin-bottom:10px;text-shadow:2px 6px 22px rgba(0,0,0,0.35)}
+.hero-center p{font-size:17px;color:#fff7a8;margin-bottom:26px;text-shadow:1px 4px 18px rgba(0,0,0,0.25)}
 
 .search-bar{
   background:#fff;border-radius:60px;height:68px;display:flex;align-items:center;margin-top: 60px;
@@ -104,11 +107,13 @@ body{font-family: "Inter", Arial, sans-serif;color:#222;background:#fff;line-hei
     border-radius: 50%; padding: 25px 20px; text-align: center; color: white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15); min-width: 90px; min-height: 90px;
     display: flex; flex-direction: column; justify-content: center;
+    mARGIN-LEFT:5PX;
 }
 .circle-info h3 { font-size: 22px; font-weight: bold; }
 .circle-info p { font-size: 14px; }
 .happy-kids-badge { top: 5%; left: -100px; }
-.courses-badge { top: 5%; right: -100px; }
+.courses-badge { top: 5%; right: -80px; 
+border-radius: 50;}
 
 /* ---------- AGE / PICK ---------- */
 .how-old{padding:56px 6%;text-align:center;background:#f8f8fd}
@@ -470,4 +475,7 @@ footer{background:#0b0b0b;color:#fff;text-align:center;padding:28px 6%}
 #courseGrid .course .course-tag {
   font-size: 0.85rem;
   color: #666;
+}
+body {
+  overflow-x: hidden;
 }
