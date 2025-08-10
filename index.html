@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Course Browse - Figma Replica</title>
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">CourseHub</div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="#">Categories</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+  <a class="btn-register" href="#">Register</a>
+</div>
+
+<div class="page-wrap">
+  <section class="hero">
+    <div class="hero-left">
+        <div class="img-wrapper">
+            <img src="kid-image.png" alt="Girl" class="girl-img">
+            <div class="circle-info happy-kids-badge">
+                <h3>200+</h3><p>Happy Kids</p>
+            </div>
+        </div>
+    </div>
+    <div class="hero-center">
+        <h1>Learn a new Skill</h1>
+        <h1 style="color:yellowgreen;">Everyday,Anytime,Anywhere</h1>
+        <div class="search-bar">
+            <input id="searchInput" type="text" placeholder="Search for courses...">
+            <button id="searchBtn">Search</button>
+        </div>
+    </div>
+    <div class="hero-right">
+        <div class="img-wrapper">
+            <img src="images/boy.jpeg" alt="Boy" class="boy-img">
+            <div class="circle-info courses-badge">
+                <h3>120+</h3><p>Courses</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="how-old">
+    <h2>How old are you?</h2>
+    <h3>Pick your age and find best courses for you</h3>
+    <div class="age-boxes" id="ageBoxes">
+      <div class="age-card" data-age="5-7">5 - 7</div>
+      <div class="age-card" data-age="8-10">8 - 10</div>
+      <div class="age-card" data-age="11-13">11 - 13</div>
+      <div class="age-card" data-age="14-16">14 - 16</div>
+      <div class="age-card" data-age="17+">17+</div>
+      <div class="age-card" data-age="all">All</div>
+    </div>
+  </section>
+
+  <h1 style="text-align:center">New launches</h1>
+  <h2 style="text-align:center;">Our most loved courses kids absolutely adore</h2>
+  <section class="courses-wrap">
+    <div class="controls">
+      <div class="results-count" id="resultsCount">Showing 0 courses</div>
+      <div>Filter: <span id="activeAge">All</span></div>
+    </div>
+    <div id="courseGrid" class="course-grid"></div>
+    <div id="noResults" class="no-results" style="display:none">No courses found</div>
+  </section>
+
+  <h1 style="text-align:center; margin-top:60px;">Featured Courses</h1>
+  <h2 style="text-align:center;">Handpicked for excellence and quality learning</h2>
+  <section class="courses-wrap">
+    <div class="results-count" id="featuredResultsCount">Showing 0 courses</div>
+    <div id="featuredCourseGrid" class="course-grid"></div>
+    <div id="featuredNoResults" class="no-results" style="display:none">No featured courses found</div>
+  </section>
+  <h1 style="text-align:center; margin-top:60px;">Learn from Top Teachers</h1>
+<h2 style="text-align:center; margin-bottom:30px;">Get mentored by experts in the field</h2>
+<section class="courses-wrap">
+  <div class="course-grid" id="teachersGrid"></div>
+</section>
+</div>
+<section class="popular-categories">
+  <div class="pc-inner">
+    <header class="pc-head">
+      <h2>Popular Categories</h2>
+      <p>Pick what you love most! These categories have everything you need to learn something awesome ✨</p>
+    </header>
+
+    <div class="pc-row" id="pcRow" tabindex="0">
+      <!-- Example card structure; add/remove cards as needed -->
+      <button class="pc-card active" data-name="Coding">
+        <div class="pc-card-illustration">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=60" alt="Coding">
+        </div>
+        <div class="pc-card-labels">
+          <div class="pc-card-title">Coding</div>
+          <div class="pc-card-sub">Build apps, websites</div>
+        </div>
+      </button>
+
+      <button class="pc-card" data-name="Public speaking">
+        <div class="pc-card-illustration">
+          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=600&q=60" alt="Public speaking">
+        </div>
+        <div class="pc-card-labels">
+          <div class="pc-card-title">Public speaking</div>
+          <div class="pc-card-sub">Speak confidently</div>
+        </div>
+      </button>
+
+      <button class="pc-card" data-name="Chess">
+        <div class="pc-card-illustration">
+          <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=600&q=60" alt="Chess">
+        </div>
+        <div class="pc-card-labels">
+          <div class="pc-card-title">Chess</div>
+          <div class="pc-card-sub">Strategy & fun</div>
+        </div>
+      </button>
+
+      <button class="pc-card" data-name="Homework help">
+        <div class="pc-card-illustration">
+          <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=600&q=60" alt="Homework">
+        </div>
+        <div class="pc-card-labels">
+          <div class="pc-card-title">Home work help</div>
+          <div class="pc-card-sub">Guidance & tips</div>
+        </div>
+      </button>
+
+      <!-- <button class="pc-card" data-name="App building">
+        <div class="pc-card-illustration">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=60" alt="App">
+        </div>
+        <div class="pc-card-labels">
+          <div class="pc-card-title">App building</div>
+          <div class="pc-card-sub">Mobile & web</div>
+        </div>
+      </button> -->
+
+      <!-- add more as needed -->
+    </div>
+  </div>
+  
+    <h1>Filter with Time</h1>
+    <p>Choose the perfect time that fits your child's schedule</p>
+
+    <div class="time-options">
+        <div class="time-card">
+            <div>
+                <h3>Morning classes</h3>
+                <span>8am - 12pm</span>
+            </div>
+            <div class="icon">🌅</div>
+        </div>
+        <div class="time-card">
+            <div>
+                <h3>Afternoon classes</h3>
+                <span>12pm - 4pm</span>
+            </div>
+            <div class="icon">☀️</div>
+        </div>
+        <div class="time-card active">
+            <div>
+                <h3>Evening classes</h3>
+                <span>4pm - 8pm</span>
+            </div>
+            <div class="icon">🌙</div>
+        </div>
+        <div class="time-card">
+            <div>
+                <h3>Late evening classes</h3>
+                <span>8pm - 11pm</span>
+            </div>
+            <div class="icon">🌌</div>
+        </div>
+    </div>
+</section>
+
+<section id="timeFilteredSection" style="margin-top: 30px;">
+  <h2 style="text-align: center;">Courses for Selected Time</h2>
+  <div id="timeFilteredCourseGrid" style="display:flex; flex-wrap: wrap; gap: 12px;"></div>
+  <div id="timeNoResults" style="display:none; color: red; margin-top: 10px;">No courses found for selected time.</div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> CourseHub
+</footer>
+<script>
+  
+
+//     const courses = [
+//   {
+//     id: 1,
+//     title: "Career Counseling Basics",
+//     category: "counseling",
+//     teacher: "Ms. Anjali",
+//     time: "morning",
+//     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
+//   },
+//   {
+//     id: 2,
+//     title: "Advanced Java Programming",
+//     category: "programming",
+//     teacher: "Mr. Rajesh",
+//     time: "evening",
+//     image: "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=600&q=80"
+//   },
+//   {
+//     id: 3,
+//     title: "Design Thinking Workshop",
+//     category: "design",
+//     teacher: "Ms. Kavita",
+//     time: "afternoon",
+//     image: "https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=600&q=80"
+//   },
+//   {
+//     id: 4,
+//     title: "Doubt Solving Session: Math",
+//     category: "doubt-solving",
+//     teacher: "Mr. Suresh",
+//     time: "late-evening",
+//     image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
+//   }
+// ];
+const COURSES = [
+  {
+    id: 1,
+    title: "Math Mastery - Basics",
+    category: "Math",
+    rating: 5,
+    img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
+    ages: ["5-7", "8-10"],
+    times: ["morning", "afternoon"]
+  },
+  {
+    id: 2,
+    title: "Science Experiments for Kids",
+    category: "Science",
+    rating: 5,
+    img: "https://images.unsplash.com/photo-1535930749574-1399327ce78f?auto=format&fit=crop&w=800&q=80",
+    ages: ["8-10", "11-13"],
+    times: ["afternoon", "evening"]
+  },
+  {
+    id: 3,
+    title: "Intro to Coding with Scratch",
+    category: "Coding",
+    rating: 4,
+    img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    ages: ["8-10", "11-13", "14-16"],
+    times: ["morning", "evening"]
+  },
+  {
+    id: 4,
+    title: "Creative Drawing & Sketching",
+    category: "Art",
+    rating: 5,
+    img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+    ages: ["11-13", "14-16", "17+"],
+    times: ["evening", "late-evening"]
+  },
+//    {
+//     id: 5,
+//     title: "Basic Robotics",
+//     category: "Robotics",
+//     rating: 4,
+//        img: "images/robot.webp",
+//     ages: ["11-13", "14-16", "17+"],
+//     times: ["afternoon", "evening"]
+//   },
+//   {
+//     id: 6,
+//     title: "Fun with Chemistry",
+//     category: "Science",
+//     rating: 5,
+//     img: "https://images.unsplash.com/photo-1590080877777-fc1e4b7a1a40?auto=format&fit=crop&w=800&q=80",
+//     ages: ["8-10", "11-13"],
+//     times: ["morning", "afternoon"]
+//   },
+  {
+    id: 7,
+    title: "Storytelling & Creative Writing",
+    category: "Language Arts",
+    rating: 4,
+    img: "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=800&q=80",
+    ages: ["8-10", "11-13", "14-16"],
+    times: ["evening", "late-evening"]
+  }
+];
+
+const FEATURED_COURSES = [
+  {
+    id: 101,
+    title: "Mastering Photography",
+    category: "Photography",
+    rating: 5,
+    img: "https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?auto=format&fit=crop&w=800&q=80",
+    ages: ["14-16", "17+"]
+  },
+  {
+    id: 102,
+    title: "3D Animation Basics",
+    category: "Animation",
+    rating: 4,
+    img: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=800&q=80",
+    ages: ["11-13", "14-16"]
+  },
+  {
+    id: 103,
+    title: "Creative Writing Workshop",
+    category: "Writing",
+    rating: 5,
+    img: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80",
+    ages: ["14-16", "17+"]
+  },
+  {
+    id: 104,
+    title: "Basics of Robotics",
+    category: "Robotics",
+    rating: 4,
+    img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+    ages: ["11-13", "14-16"]
+  },
+  {
+    id: 105,
+    title: "Music Theory for Beginners",
+    category: "Music",
+    rating: 5,
+    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
+    ages: ["8-10", "11-13"]
+  },
+  {
+    id: 106,
+    title: "Introduction to Graphic Design",
+    category: "Design",
+    rating: 4,
+    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+    ages: ["14-16", "17+"]
+  },
+  {
+    id: 108,
+    title: "Web Development Basics",
+    category: "Coding",
+    rating: 4,
+    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+    ages: ["11-13", "14-16"]
+  }
+];
+
+let currentAge = "all", currentQuery = "";
+let currentTime = "evening"; // default active time slot
+
+function matchesAge(course, age) {
+  if(age === 'all') return true;
+  return course.ages.includes(age);
+}
+
+function matchesQuery(course, q) {
+  if(!q) return true;
+  const s = q.toLowerCase();
+  return course.title.toLowerCase().includes(s) || course.category.toLowerCase().includes(s);
+}
+
+function matchesTime(course, time) {
+  if(!course.times) return false;
+  return course.times.includes(time);
+}
+
+function renderCourses() {
+  const grid = document.getElementById('courseGrid');
+  const noResults = document.getElementById('noResults');
+  const list = COURSES.filter(c => matchesAge(c, currentAge) && matchesQuery(c, currentQuery));
+  grid.innerHTML = '';
+  if(list.length === 0) {
+    noResults.style.display = 'block';
+  } else {
+    noResults.style.display = 'none';
+    list.forEach(c => {
+      grid.innerHTML += `
+      <article class="course">
+        <img class="course-thumb" src="${c.img}&auto=format&fit=crop&w=1200&h=700">
+        <div class="course-body">
+          <span class="course-tag">${c.category}</span>
+          <div class="course-title">${c.title}</div>
+        </div>
+      </article>`;
+    });
+  }
+  document.getElementById('resultsCount').textContent = `Showing ${list.length} courses`;
+}
+
+function renderFeaturedCourses() {
+  const grid = document.getElementById('featuredCourseGrid');
+  const noResults = document.getElementById('featuredNoResults');
+  const list = FEATURED_COURSES.filter(c => matchesQuery(c, currentQuery));
+  grid.innerHTML = '';
+  if(list.length === 0) {
+    noResults.style.display = 'block';
+  } else {
+    noResults.style.display = 'none';
+    list.forEach(c => {
+      grid.innerHTML += `
+      <article class="course">
+        <img class="course-thumb" src="${c.img}&auto=format&fit=crop&w=1200&h=700">
+        <div class="course-body">
+          <span class="course-tag">${c.category}</span>
+          <div class="course-title">${c.title}</div>
+        </div>
+      </article>`;
+    });
+  }
+  document.getElementById('featuredResultsCount').textContent = `Showing ${list.length} courses`;
+}
+
+function renderCoursesByTime() {
+  const grid = document.getElementById('timeFilteredCourseGrid');
+  const noResults = document.getElementById('timeNoResults');
+  const filtered = COURSES.filter(c => matchesTime(c, currentTime));
+  grid.innerHTML = '';
+  if(filtered.length === 0) {
+    noResults.style.display = 'block';
+  } else {
+    noResults.style.display = 'none';
+    filtered.forEach(course => {
+      grid.innerHTML += `
+      <article class="course" style="width: 240px; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; margin: 5px;">
+        <img src="${course.img}" alt="${course.title}" style="width: 100%; height: 140px; object-fit: cover;">
+        <div style="padding: 8px;">
+          <div style="font-weight: bold;">${course.title}</div>
+          <small style="color: gray;">${course.category}</small>
+        </div>
+      </article>`;
+    });
+  }
+}
+
+document.getElementById('ageBoxes').addEventListener('click', e => {
+  const card = e.target.closest('.age-card');
+  if(!card) return;
+  document.querySelectorAll('.age-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  currentAge = card.dataset.age || 'all';
+  document.getElementById('activeAge').textContent = currentAge;
+  renderCourses();
+});
+
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchBtn');
+searchInput.addEventListener('input', () => {
+  currentQuery = searchInput.value.trim();
+  renderCourses();
+  renderFeaturedCourses();
+  renderCoursesByTime();
+});
+searchBtn.addEventListener('click', () => {
+  currentQuery = searchInput.value.trim();
+  renderCourses();
+  renderFeaturedCourses();
+  renderCoursesByTime();
+});
+
+renderCourses();
+renderFeaturedCourses();
+renderCoursesByTime();
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const TOP_TEACHERS = [
+  {
+    id: 201,
+    name: "Emma Johnson",
+    expertise: "Mathematics",
+    img: "https://randomuser.me/api/portraits/women/44.jpg"
+  },
+  {
+    id: 202,
+    name: "Liam Smith",
+    expertise: "Science",
+    img: "https://randomuser.me/api/portraits/men/46.jpg"
+  },
+  {
+    id: 203,
+    name: "Sophia Lee",
+    expertise: "Coding",
+    img: "https://randomuser.me/api/portraits/women/47.jpg"
+  },
+  {
+    id: 204,
+    name: "Noah Brown",
+    expertise: "Art & Design",
+    img: "https://randomuser.me/api/portraits/men/48.jpg"
+  },
+  {
+    id: 205,
+    name: "Sophia Martinez",
+    subject: "Art & Design",
+    img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80"
+  },
+];
+
+function renderTeachers() {
+  const grid = document.getElementById('teachersGrid');
+  grid.innerHTML = '';
+  TOP_TEACHERS.forEach(t => {
+    grid.innerHTML += `
+    <article class="course" style="text-align:center;">
+      <img class="course-thumb" src="${t.img}" alt="${t.name}" style="height:200px; object-fit:cover;">
+      <div class="course-body">
+        <div class="course-title">${t.name}</div>
+        <span class="course-tag">${t.expertise}</span>
+      </div>
+    </article>`;
+  });
+}
+
+renderTeachers();
+
+(function() {
+  const row = document.getElementById('pcRow');
+  row.addEventListener('click', e => {
+    const card = e.target.closest('.pc-card');
+    if(!card) return;
+    document.querySelectorAll('.pc-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+  });
+
+  row.addEventListener('keydown', e => {
+    if(e.key === 'ArrowRight') { row.scrollBy({left:260, behavior:'smooth'}); e.preventDefault();}
+    if(e.key === 'ArrowLeft') { row.scrollBy({left:-260, behavior:'smooth'}); e.preventDefault();}
+  });
+
+  window.addEventListener('load', () => {
+    const active = document.querySelector('.pc-card.active');
+    if(active) active.scrollIntoView({behavior:'smooth', inline:'center'});
+  });
+})();
+
+const cards = document.querySelectorAll('.time-card');
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    cards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    const timeText = card.querySelector('h3').textContent.toLowerCase();
+    if (timeText.includes('morning')) currentTime = 'morning';
+    else if (timeText.includes('afternoon')) currentTime = 'afternoon';
+    else if (timeText.includes('evening') && !timeText.includes('late')) currentTime = 'evening';
+    else if (timeText.includes('late evening') || timeText.includes('late-evening')) currentTime = 'late-evening';
+    else currentTime = 'evening';
+
+    renderCoursesByTime();
+  });
+});
+</script>
+</body>
+</html>
